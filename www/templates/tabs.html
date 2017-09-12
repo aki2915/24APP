@@ -1,0 +1,55 @@
+<style type="text/css">
+	.ion-my-home{
+		background: url("../img/icon/shouye.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-home-strong{
+		background: url("../img/icon/shouye_jh.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-interest{
+		background: url("../img/icon/zhiqu.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-interest-strong{
+		background: url("../img/icon/zhiqu_jh.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-shopcar{
+		background: url("../img/icon/gouwuche.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-shopcar-strong{
+		background: url("../img/icon/gouwuche_jh.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-mine{
+		background: url("../img/icon/wode.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+	.ion-my-mine-strong{
+		background: url("../img/icon/wode_jh.png") no-repeat center;
+		background-size: 0.6rem 0.6rem;
+	}
+</style>
+<ion-tabs class="tabs-icon-top tabs-background-light tabs-color-active-assertive " class="tabs-icon-top" ng-class="{'tabs-item-hide': $root.hideTabs}">
+	<!-- home Tab -->
+	<ion-tab title="首页" icon-off="ion-my-home" icon-on="ion-my-home-strong" href="#/tab/home">
+		<ion-nav-view name="tab-home"></ion-nav-view>
+	</ion-tab>
+
+	<!-- interest Tab -->
+	<ion-tab title="志趣" icon-off="ion-my-interest" icon-on="ion-my-interest-strong" href="#/tab/interest">
+		<ion-nav-view name="tab-interest"></ion-nav-view>
+	</ion-tab>
+
+	<!-- shopcar Tab -->
+	<ion-tab title="购物车" icon-off="ion-my-shopcar" icon-on="ion-my-shopcar-strong" href="#/tab/shopcar">
+		<ion-nav-view name="tab-shopcar"></ion-nav-view>
+	</ion-tab>
+
+	<!-- aboutme Tab -->
+	<ion-tab title="我的" icon-off="ion-my-mine" icon-on="ion-my-mine-strong" href="#/tab/mine">
+		<ion-nav-view name="tab-mine"></ion-nav-view>
+	</ion-tab>
+</ion-tabs>

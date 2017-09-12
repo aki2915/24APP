@@ -1,0 +1,111 @@
+<ion-view view-title="24季" hide-nav-bar="true">
+<style type="text/css">
+@font-face{
+    font-family:'thys';
+    src: url('font/FZLTHYS-GBK_YS.ttf');
+}
+*{
+    font-family: 'thys' ! important;
+}
+#header img{
+    width:100%;
+}
+#home_carousel{
+    width:100%;
+    height: 5.05rem;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px;
+}
+#home_carousel .swiper-slide{
+    width:80%;
+    height: 200px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+#home_carousel .swiper-slide .main-img{
+    height: 4.8rem;
+    width: 9.1rem;
+    margin:0 auto;
+    display:block;
+}
+.theme,.hot{
+    padding-bottom: 0;
+    border-color: #f5f5f5;
+}
+.theme .col{
+    width: 4.0rem;
+    height: 2.5rem;
+    margin:  -0.1rem 0;
+}
+.theme .col img{
+    width: 100%;
+    height: 100%;
+}
+.theme h3,.hot h3{
+    font-size: 0.35rem;
+    color: #575757;
+    margin: 0;
+}
+.theme span,.hot span{
+    font-size: 0.25rem;
+    color: #aeaeae;
+    padding-left: 0.3rem;
+}
+.hot .col{
+    width: 4.90rem;
+    height: 5rem;
+}
+.hot img{
+    height: auto;
+    width: 100%;
+}
+.hot .col h3{
+    font-size: 0.35rem;
+    padding: 0.15rem;
+}
+</style>
+<ion-header-bar class="header ling-bg"><h2 class="title">24季</h2></ion-header-bar>
+<ion-content>
+<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <!-- 轮播 -->
+    <div class="swiper-container" id="home_carousel" style="background: #f1f1f1;">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="bannerData in bannerData" ng-click="goDetail({{bannerData.id}})">
+                <img ng-src="{{bannerData.imgsrc}}" class="main-img">
+            </div>
+        </div>
+    </div>
+    <!-- 精选主题 -->
+    <ion-item class="theme">
+    <h3 style="margin: 0.3rem 0"> 精选主题<span>用餐桌连接自然</span></h3>
+        <div class="row">
+            <div class="col col-50"><img ng-src="img/jxzt1.png" /></div>
+            <div class="col col-50"><img ng-src="img/jxzt2.png" /></div>
+        </div>
+        <div class="row">
+            <div class="col col-50"><img ng-src="img/jxzt3.png" /></div>
+            <div class="col col-50"><img ng-src="img/jxzt4.png" /></div>
+        </div>
+    </ion-item>
+    <div style="height: 0.15rem;background: #f5f5f5;"></div><!--分割线-->
+    <!--人气推荐-->
+        <ion-item class="hot">
+            <h3 style="margin: 0.3rem 0"> 人气推荐<span>发现当季舌尖上的真味</span></h3>
+
+            <div class="row" ng-repeat="hotRow in arr">
+                <div class="col col-50" ng-repeat="hotCol in hotRow" ng-click="goDetail({{hotCol.id}})">
+                    <div style="border: 1px solid #f1f1f1;" id="{{hotCol.id}}">
+                        <img ng-src="{{hotCol.imgsrc}}" />
+                        <h3>{{hotCol.protitle}}</h3>
+                        <h3 style="color: #d1a570;"><i>{{hotCol.price}}</i>元</h3>
+                    </div>
+                </div>
+            </div>
+            <ion-infinite-scroll ng-if="hasmore" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+        </ion-item>
+</ion-content>
+</ion-view>
