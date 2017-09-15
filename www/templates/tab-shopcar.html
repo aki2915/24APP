@@ -66,15 +66,20 @@
 		font-weight: 600;
 		font-size: 0.3rem;
 	}
-	.add,.minus{
+	.redact>.add,.redact>.minus{
 		width: 0.65rem;
 		background: #262626;
 		border: none;
 		color: #fff;
 		margin-top: 0.51rem;
 	}
+	.redact>.add{
+		float: right;
+	}
 	.mun{
-		padding: 0 0.42rem;
+		display: inline-block;
+		width: 1rem;
+		text-align: center;
 	}
 	.bar-footer{
 		position: absolute;
@@ -104,6 +109,11 @@
 		top: 0.03rem;
 		font-size: 0.4rem;
 	}
+	.summation{
+		position: absolute;
+		right: 3.6rem;
+		line-height: 0.78rem;
+	}
 </style>
 	<div class="bar bar-header">
 		<div class="h1 title">购物车</div>
@@ -111,140 +121,38 @@
 	</div>
 	<ion-content class="content" style="padding-top:43px; margin-bottom: 48px;" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
 		<div class="car-list">
-			<div>
-				<i class="icon ion-ios-checkmark"></i>
+			<div procode="1">
+				<i class="select_hook icon ion-ios-checkmark" stat="true"></i>
 				<img src="../img/product/2.png" />
 				<div class="list-txt" ng-style="txtWidth">
 					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
 					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
+					<p class="detail_price"><i>118</i>元×<i class="muns">1</i></p>
 				</div>
 				<div class="redact" ng-show="redact">
 					<button class="popup">
 						<i class="ionic ion-chevron-down"></i>
 					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
+					<button class="minus"><i class="ionic ion-minus"></i></button>
 					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
+					<button class="add"><i class="ionic ion-plus"></i></button>
 				</div>
 			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
+			<div procode="2">
+				<i class="select_hook icon ion-ios-circle-outline" stat="false"></i>
 				<img src="../img/product/2.png" />
 				<div class="list-txt" ng-style="txtWidth">
 					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
 					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
+					<p class="detail_price"><i>118</i>元×<i class="muns">1</i></p>
 				</div>
 				<div class="redact" ng-show="redact">
 					<button class="popup">
 						<i class="ionic ion-chevron-down"></i>
 					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
-				</div>
-			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
-				<img src="../img/product/2.png" />
-				<div class="list-txt" ng-style="txtWidth">
-					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
-					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
-				</div>
-				<div class="redact" ng-show="redact">
-					<button class="popup">
-						<i class="ionic ion-chevron-down"></i>
-					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
-				</div>
-			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
-				<img src="../img/product/2.png" />
-				<div class="list-txt" ng-style="txtWidth">
-					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
-					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
-				</div>
-				<div class="redact" ng-show="redact">
-					<button class="popup">
-						<i class="ionic ion-chevron-down"></i>
-					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
-				</div>
-			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
-				<img src="../img/product/2.png" />
-				<div class="list-txt" ng-style="txtWidth">
-					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
-					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
-				</div>
-				<div class="redact" ng-show="redact">
-					<button class="popup">
-						<i class="ionic ion-chevron-down"></i>
-					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
-				</div>
-			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
-				<img src="../img/product/2.png" />
-				<div class="list-txt" ng-style="txtWidth">
-					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
-					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
-				</div>
-				<div class="redact" ng-show="redact">
-					<button class="popup">
-						<i class="ionic ion-chevron-down"></i>
-					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
-				</div>
-			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
-				<img src="../img/product/2.png" />
-				<div class="list-txt" ng-style="txtWidth">
-					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
-					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
-				</div>
-				<div class="redact" ng-show="redact">
-					<button class="popup">
-						<i class="ionic ion-chevron-down"></i>
-					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
-				</div>
-			</div>
-			<div>
-				<i class="icon ion-ios-circle-outline"></i>
-				<img src="../img/product/2.png" />
-				<div class="list-txt" ng-style="txtWidth">
-					<h5 class="detail_title">会飞的世界名鸡 生态放养河田鸡</h5>
-					<p class="detail_unit">老母鸡(1000g/只)</p>
-					<p class="detail_price"><i>118</i>元×<i>1</i></p>
-				</div>
-				<div class="redact" ng-show="redact">
-					<button class="popup">
-						<i class="ionic ion-chevron-down"></i>
-					</button>
-					<button class="add"><i class="ionic ion-minus"></i></button>
-					<span class="mun">1</span>
-					<button class="minus"><i class="ionic ion-plus"></i></button>
+					<button class="minus"><i class="ionic ion-minus"></i></button>
+					<span class="mun">2</span>
+					<button class="add"><i class="ionic ion-plus"></i></button>
 				</div>
 			</div>
 		</div>
@@ -254,6 +162,7 @@
 			<i class="icon ion-ios-checkmark"></i>
 			<span>全选</span>
 		</div>
+		<h4 class="summation"><span class="summation_in"></span>.00元</h4>
 		<button class="fun_btn">删除所选</button>
 	</div>
 </ion-view>

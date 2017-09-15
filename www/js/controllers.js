@@ -85,6 +85,46 @@ angular.module('starter.controllers', [])
 		$scope.txtWidthToggle=!$scope.txtWidthToggle
 	}
 
+	$(".select_hook").click(function(){//选择图标切换
+		if($(this).attr("stat") == "true"){
+			$(this).attr("class","select_hook icon ion-ios-circle-outline")
+			$(this).attr("stat","false")
+		}else if($(this).attr("stat") == "false"){
+			$(this).attr("class","select_hook icon ion-ios-checkmark")
+			$(this).attr("stat","true")
+		}
+	});
+	$(".redact .add").click(function(){
+		var mun = parseInt($(this).prev().html())
+		mun++;
+		$(this).prev().html(mun)
+		$(this).parent().prev().children('.detail_price').children('.muns').html(mun)
+
+	})
+	$(".redact .minus").click(function(){
+		var mun = parseInt($(this).next().html())
+		if(mun <= 1){return}else{
+			mun--;
+			$(this).next().html(mun)
+			$(this).parent().prev().children('.detail_price').children('.muns').html(mun)
+		}
+	})
+
+	$(".summation_in").html(123)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })//购物车CtrlEnd
 
@@ -92,9 +132,8 @@ angular.module('starter.controllers', [])
 .controller('mineCtrl', function($scope){})//我的CtrlEnd
 
 // 商品详情Ctrl
-.controller('detailCtrl',function($scope,$ionicModal,$rootScope,$ionicHistory,$stateParams,detailData){
+.controller('detailCtrl',function($scope,$ionicModal,$rootScope,$ionicHistory,$timeout,$stateParams,detailData,pickData){
 	$scope.id=$stateParams.myId
-	console.log($scope.id)
 	//轮播
 	var mySwiper = new Swiper('#detail_carousel', {autoplay: 5000,})
 	//返回上页
@@ -102,6 +141,26 @@ angular.module('starter.controllers', [])
 		$ionicHistory.goBack();
 	};
 	$scope.detailData = detailData[$scope.id-1];
+	$scope.pickData = pickData[$scope.id-1];
+	console.log($scope.pickData)
+
+ 	$ionicModal.fromTemplateUrl('my-modal.html', {
+	    scope: $scope,
+	    animation: 'slide-in-up'
+	}).then(function(modal) {
+	    $scope.modal = modal;
+	});
+	$scope.openModal = function() {
+	    $scope.modal.show();
+	};
+	$scope.closeModal = function() {
+	    $scope.modal.hide();
+	};
+
+	$scope.pick_param_txt=function(){
+		console.log($(this).html())
+	}
+
 
 
 
